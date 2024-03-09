@@ -16,13 +16,13 @@ module.exports = (sequelize, dataTypes) => {
 
     const config = {
         tableName : 'professions',
-        timestamps : 'false'
+        timestamps : false
     }
 
     const Profession = sequelize.define(alias, cols, config);
 
     Profession.associate = function (models){
-        Profession.hasMany(models.Applicant, {
+        Profession.hasMany(models.Applicants, {
             as : 'applicants',
             foreignKey : 'profession_id'
         })
